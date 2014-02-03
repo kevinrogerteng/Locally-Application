@@ -9,12 +9,11 @@ class ActivitiesController < ApplicationController
 		trip = params[:id]
 		add_trip = current_user.trips.find(trip)
 		add_trip.activities << new_activity
-		redirect_to "/trips/#{trip}/activities/#{new_activity.id}"
+		redirect_to trip_path(trip)
 	end
 
 	def edit
 		id = params[:activity_id]
-		binding.pry
 		@activity = Activity.find(id)
 
 	end
