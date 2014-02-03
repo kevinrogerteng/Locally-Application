@@ -1,8 +1,7 @@
-	<%= form_for :activity, method: :post, url: activities_path do |f| %>
+	<%= form_for :activity, method: :patch, url: activity_path do |f| %>
 		<%= label_tag(:name, "Name") %> <%= f.text_field :name%><br>
 		<%= label_tag(:address, "Address") %> <%= f.text_field :address %><br>
 		<%= label_tag(:biz_url, "Business URL") %> <%= f.text_field :biz_url %><br>
 		<%= label_tag(:phone, "Phone") %> <%= f.text_field :phone %><br>
-		<% f.hidden_field :tripid, value: @trip.to_i %>
-		<%= f.submit "Create Activity"%>
+		<%= f.submit "Update Activity"%>
 	<%end%>

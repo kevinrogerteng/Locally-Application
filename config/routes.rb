@@ -15,7 +15,9 @@ LocallyApp::Application.routes.draw do
 
   get '/trips/:id/activities/:activity_id' => 'activities#show', as: :activity
 
+  get '/trips/:id/activities/:activity_id/edit' => 'activities#edit', as: :edit_activity
 
+  patch '/trips/:id/activities/:activity_id' => 'activities#update'
 
-
+  delete '/trips/:id/activities/:activity_id' => 'activities#destroy', as: :delete
 end

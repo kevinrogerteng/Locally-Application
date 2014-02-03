@@ -13,18 +13,32 @@ class ActivitiesController < ApplicationController
 	end
 
 	def edit
+		id = params[:activity_id]
+		binding.pry
+		@activity = Activity.find(id)
+
 	end
 
 	def update
+		id = params[:activity_id]
+		trip = params[:id]
+		activity = Activity.find(id)
+		activity.update(activity_params)
+		redirect_to trip_path(trip)
 
 	end
 
 	def show
 		id = params[:activity_id]
+		@trip = params[:id]
 		@activity = Activity.find(id)
 	end
 
 	def destroy
+		id = params[:activity_id]
+		trip = params[:id]
+		Activity.find(id).destroy
+		redirect_to trip_path(trip)
 	end
 
 	private
