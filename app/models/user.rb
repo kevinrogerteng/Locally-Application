@@ -7,9 +7,10 @@
 #  email_address   :string(255)
 #  screen_name     :string(255)
 #  hometown        :string(255)
+#  password_digest :string(255)
+#  remember_token  :string(255)
 #  created_at      :datetime
 #  updated_at      :datetime
-#  password_digest :string(255)
 #
 
 class User < ActiveRecord::Base

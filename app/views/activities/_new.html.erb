@@ -1,0 +1,7 @@
+	<%= form_for (@activity) do |f| %>
+		<%= label_tag(:name, "Name") %> <%= f.text_field :name%><br>
+		<%= label_tag(:address, "Address") %> <%= f.text_field :address %><br>
+		<%= label_tag(:biz_url, "Business URL") %> <%= f.text_field :biz_url %><br>
+		<%= label_tag(:phone, "Phone") %> <%= f.text_field :phone %><br>
+		<%= f.submit "Create Activity"%>
+	<%end%>

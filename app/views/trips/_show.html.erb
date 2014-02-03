@@ -1,4 +1,5 @@
 <%= link_to "View All Trips", trips_path %>
+<%= link_to "Add Activity", new_activity_path %>
 <div class= "Trip Information">
 	Trip Name: <%= @trip['name'] %> <br>
 	Destination: <%= @trip['destination'] %> <br>
@@ -7,10 +8,18 @@
 	<%= link_to "Delete", trip_path(@trip['id']), method: :delete%><br>
 </div>
 <br>
+Activities:<br>
+	<% @activity.each do |activity| %>
+	Name: <%= activity['name'] %> <br>
+	Address: <%= activity['address'] %> <br>
+	Phone: <%= activity['phone'] %> <br>
+	<%= link_to "More Info", activity["biz_url"], :target => '_blank' %> <br>
+	<% end%><br>
 
 Available Things to do in <%= @trip['destination'] %><br>
 
 <% @result.each do |business| %>
+<%= form_for :activity, method: :post, url: new_activity_path %>
 	<img src=<%= business["image_url"]%> /><br>
 	<%= business["name"] %><br>
 	<% business["location"]['display_address'].each do |address| %>

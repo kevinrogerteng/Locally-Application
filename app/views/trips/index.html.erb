@@ -1,5 +1,5 @@
 <%= @current_user['screen_name']%> <%= link_to "Sign Out", signout_path %><br>
-<%= link_to "Add a Trip", new_trip_path %>
+<%= link_to "Add a Trip", new_trip_path %>  
 <div class='tripbox'>
 <% @trips.each do |y| %>
 <%= link_to y.name, trip_path(y.id) %><br> 

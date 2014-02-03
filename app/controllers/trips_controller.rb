@@ -14,7 +14,6 @@ class TripsController < ApplicationController
 		new_trip = Trip.create(trip_params)
 		user = current_user.trips
 		user << new_trip
-		binding.pry
 		redirect_to trip_path(new_trip.id)
 	end
 
@@ -33,6 +32,7 @@ class TripsController < ApplicationController
 	def show 
 		id = params[:id]
 		@trip = Trip.find(id)
+		@activity = @trip.activities
 		location = @trip.destination.delete(",").gsub(" ", "+")
 		consumer_key = 'fRaHH5Mu6S5cERbTaBA9mw'
 		consumer_secret = 'mrmPWhiK1WCg38bAaTFHUKbObjU'

@@ -1,5 +1,5 @@
 LocallyApp::Application.routes.draw do
-  resources :trips, :users, :sites, :sessions, :users
+  resources :trips, :users, :sites, :sessions, :users, :activities
 
   root 'sites#index'
   get '/signout' => 'sessions#destroy', via: :delete
