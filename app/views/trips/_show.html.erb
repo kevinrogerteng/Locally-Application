@@ -8,10 +8,36 @@
 	<%= link_to "Delete", trip_path(@trip['id']), method: :delete%><br>
 </div>
 <br>
+<% activities = [] %>
+
 Activities:<br>
 	<% @activity.each do |activity| %>
 		Name: <%= link_to activity['name'], "/trips/#{activity.trip.id}/activities/#{activity['id']}" %><br>
+		<% activities << activity['yid'] %>
 	<% end%><br>
+
+	Available Things to do in <%= @trip['destination'] %><br>
+	
+<% filtered = @result.delete_if{|y| activities.include?(y["id"])} %>
+
+<% filtered.each do |business| %>
+	<%= form_for :activity, method: :post, url: activities_path do |f| %>
+		<img src=<%= business["image_url"]%> /><br>
+		<%= label_tag(:name, business["name"]) %><br>
+		<%= f.hidden_field :name, value: business["name"] %>
+			<% business["location"]['display_address'].each do |address| %>
+				<%= label_tag(:address, address) %> 
+				<%= f.hidden_field :address, value: address %>
+			<%end %>
+	<br>
+		<%= label_tag(:phone, business["display_phone"]) %> <br>
+		<%= f.hidden_field :phone, value: business["display_phone"] %>
+		<%= label_tag(:rating) %><img src=<%= business["rating_img_url"] %> /> <br>
+		<%= f.hidden_field :yid, value: business["id"] %>
+		<%=link_to "More Info", business["url"], :target => '_blank' %><br>
+		<%= f.submit "Add Activities" %>
+	<% end %>
+<%end %>
 
 
 
