@@ -1,0 +1,12 @@
+
+	Trip Name: <%= @trip['name'] %> <br>
+	Destination: <%= @trip['destination'] %> <br>
+	Description: <%= @trip['description'] %> <br>
+	<%= link_to "Edit", edit_trip_path(@trip['id']) %>
+	<%= link_to "Delete", trip_path(@trip['id']), method: :delete%><br>
+
+	ACTIVITIES DOWN HERE!!!
+	
+
+
+	
