@@ -18,8 +18,8 @@ users[1].trips << trips[4]
 
 activities =[]
 
-activities << Activity.create(name: 'Metreon', address: '4th and Mission Street, San Francisco, CA', phone: 'N/A', biz_url: "www.facebook.com")
-activities << Activity.create(name: 'Westfield', address: '5th and Market Street, San Francisco, CA', phone: 'N/A', biz_url: "www.google.com")
+activities << Activity.create(name: 'Metreon', address: '4th and Mission Street, San Francisco, CA', phone: 'N/A', biz_url: "https://www.facebook.com")
+activities << Activity.create(name: 'Westfield', address: '5th and Market Street, San Francisco, CA', phone: 'N/A', biz_url: "https://www.google.com")
 
 trips[0].activities << activities[0]
 trips[0].activities << activities[1]

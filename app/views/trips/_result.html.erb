@@ -1,0 +1,15 @@
+Available Things to do in <%= @trip['destination'] %><br>
+<% @result.each do |business| %>
+<%= form_for :activity, method: :post, url: activities_path do |f| %>
+	<img src=<%= business["image_url"]%> /><br>
+	<%= label_tag(:name, business["name"]) %><br>
+	<% business["location"]['display_address'].each do |address| %>
+		<%= label_tag(:address, address) %> 
+	<%end %>
+	<br>
+	<%= label_tag(:phone, business["display_phone"]) %> <br>
+	<%= label_tag(:rating) %><img src=<%= business["rating_img_url"] %> /> <br>
+	<%=link_to "More Info", business["url"], :target => '_blank' %><br>
+	<%= f.submit "Add Activities" %>
+	<% end %>
+<%end %>

@@ -10,26 +10,12 @@
 <br>
 Activities:<br>
 	<% @activity.each do |activity| %>
-	Name: <%= activity['name'] %> <br>
-	Address: <%= activity['address'] %> <br>
-	Phone: <%= activity['phone'] %> <br>
-	<%= link_to "More Info", activity["biz_url"], :target => '_blank' %> <br>
+		Name: <%= link_to activity['name'], "/trips/#{activity.trip.id}/activities/#{activity['id']}" %><br>
 	<% end%><br>
 
-Available Things to do in <%= @trip['destination'] %><br>
 
-<% @result.each do |business| %>
-<%= form_for :activity, method: :post, url: new_activity_path %>
-	<img src=<%= business["image_url"]%> /><br>
-	<%= business["name"] %><br>
-	<% business["location"]['display_address'].each do |address| %>
-		<%= address %> 
-	<%end %>
-	<br>
-	<%= business["display_phone"] %> <br>
-	<img src=<%= business["rating_img_url"] %> /> <br>
-	<%= link_to "More Info", business["url"], :target => '_blank' %><br>
-<%end %>
+
+
 
 	
 
