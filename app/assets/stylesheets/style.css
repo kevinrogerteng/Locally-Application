@@ -5,6 +5,23 @@ body{
 
 .trip_info{
 	padding: 10px;
+	border-radius: 5px;
+	background-color: #000000;
+	text-align: left;
+}
+
+.business_name{
+	font-size: 2em;
+}
+
+.yelp{
+	border: solid 1px white;
+	text-align: left;
+}
+.yelpimg{
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 10px;
 }
 
 .create {
@@ -32,16 +49,15 @@ body{
 .container {
 	margin-right: auto;
 	margin-left: auto;
+	position: center;
+	text-align: center;
 }
 
+.signoutright{
+	margin-right: 7px;
+}
 .tripbox {
 	margin-top: 60px;
-}
-
-.trip {
-	margin: 1px;
-	padding: 5px;
-	text-align: center;
 }
 .shell{
 	border: solid 1px white;
@@ -75,11 +91,24 @@ body{
 .btn-block{
 	margin-top: 10px;
 }
-.trips {
-	align: center
+.trip {
+  margin: .4em;
+  padding: 1em;
+  width: auto;
+  cursor: pointer;
+  border: solid 1px white;
+  text-decoration: none;
+  color: #666666;
+  border-radius: 10px;
+  /* Prevent highlight colour when element is tapped */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  align: center;
 }
 
-.trip {
+.trips {
+	align:center;
+}
+.add_trip {
   margin: .4em;
   padding: 1em;
   width: 50em;
@@ -91,15 +120,18 @@ body{
   /* Prevent highlight colour when element is tapped */
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   align: center;
+  text-align: center;
 }
 
-.add_trips {
-	align:center;
+.add_activity{
+	color:white;
+
 }
-.add_trip {
+
+.activity_button{
   margin: .4em;
   padding: 1em;
-  width: 50em;
+  width: 19em;
   cursor: pointer;
   border: solid 1px white;
   text-decoration: none;
@@ -129,10 +161,23 @@ body{
   transform: scale(1.1);
 }
 
+.trip_details{
+
+}
+
+.trip_edit{
+	color:white;
+}
+
+.trip_delete{
+	color: white;
+}
+
 .triplink{
 	color: white;
 	font-size: 1.5em;
 }
+
 .alert{
 	color: white;
 }

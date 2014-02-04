@@ -1,56 +1,67 @@
-<%= link_to raw("<em class=\"glyphicon glyphicon-plus\"> Add Activity </em>"), new_activity_path, class: "btn-sm btn-default", method: :get %> 
-<div class="trip_info">
-	<div class= "Trip Information">
-		Trip Name: <%= @trip['name'] %> <br>
-		Destination: <%= @trip['destination'] %> <br>
-		Description: <%= @trip['description'] %> <br>
-		<%= link_to "Edit", edit_trip_path(@trip['id']) %>
-		<%= link_to "Delete Trip", trip_path(@trip['id']), method: :delete%><br>
+<div class="row">	
+	<div class="col-sm-4">
+		<div class="trip_info">
+					<div class= "trip_details">
+						Trip Name: <%= @trip['name'] %> <br>
+						Destination: <%= @trip['destination'] %> <br>
+						Description: <%= @trip['description'] %> <br>
+						<%= link_to raw("<i>Edit</i>"), edit_trip_path(@trip['id']), class: "trip_edit btn btn-success" %>
+						<%= link_to raw("<i>Delete</i>"), trip_path(@trip['id']), class: "trip_delete btn btn-danger", method: :delete %><br>
+					</div>
+			
+
+		<br>
+
+					<% activities = [] %>
+					Activities:<br>
+						<% @activity.each do |activity| %>
+							<div class="activity_button"><%= link_to raw(activity['name']), "/trips/#{activity.trip.id}/activities/#{activity['id']}", class: "add_activity big" %><br></div>
+							<% activities << activity['yid'] %>
+						<% end%><br>
+
+							<div class="activity_button"><%= link_to raw("<em class=\"glyphicon glyphicon-plus\"> Add Activity </em>"), new_activity_path, class: "add_activity big", method: :get %><br></div>
+
+		</div>
 	</div>
+	<div class="col-sm-8">
+		<div class="yelp">
+			Stuff to Eat, See and Do in <%= @trip['destination'] %><br>
+				<%= form_tag trip_path, :method => 'get' do %>
+					<%= text_field_tag :search, params[:search], placeholder: "Enter search here"  %>
+					<%= submit_tag "Search" %>
+				<%end %>
+			
+		<% filtered = @result.delete_if{|y| activities.include?(y["id"])} %>
 
-<br>
-
-<% activities = [] %>
-
-Activities:<br>
-	<% @activity.each do |activity| %>
-		Name: <%= link_to activity['name'], "/trips/#{activity.trip.id}/activities/#{activity['id']}" %><br>
-		<% activities << activity['yid'] %>
-	<% end%><br>
-
+		<% filtered.each do |business| %>
+				<div class="media">
+					<%= form_for :activity, method: :post, url: activities_path do |f| %>
+						<a class="pull-left">
+							<img class="media-object yelpimg" src=<%= business["image_url"]%> /><br>
+						</a>
+					<div class="media-body">
+						<%= f.hidden_field :thumbnail_photo, value: business["image_url"] %>
+						<%= label_tag(:name, business["name"], class: "business_name") %> 
+						<%=link_to "More Info", business["url"], :target => '_blank' %><br>
+						<%= f.hidden_field :biz_url, value: business['url'] %>
+						<%= f.hidden_field :name, value: business["name"] %>
+							<% business["location"]['display_address'].each do |address| %>
+								<%= label_tag(:address, address) %> 
+								<%= f.hidden_field :address, value: address %>
+							<%end %>
+					<br>
+						<%= label_tag(:phone, business["display_phone"]) %> <br>
+						<%= f.hidden_field :phone, value: business["display_phone"] %>
+						Rating: <%= label_tag(:rating, business["rating"]*2)%> / 10<br>
+							<%= f.hidden_field :rating, value: business["rating"] %>
+						<%= f.hidden_field :yid, value: business["id"] %>
+						<%= f.submit "Add Activities" %>
+					</div>
+					<% end %>
+				</div>
+		<%end %>
+	</div>
 </div>
-
-	Eat, See and Do in <%= @trip['destination'] %><br>
-<%= form_tag trip_path, :method => 'get' do %>
-	<%= text_field_tag :search, params[:search], placeholder: "Enter search here"  %>
-	<%= submit_tag "Search" %>
-<%end %>
-	
-<% filtered = @result.delete_if{|y| activities.include?(y["id"])} %>
-
-<% filtered.each do |business| %>
-	<%= form_for :activity, method: :post, url: activities_path do |f| %>
-		<img src=<%= business["image_url"]%> /><br>
-		<%= f.hidden_field :thumbnail_photo, value: business["image_url"] %>
-		<%= label_tag(:name, business["name"]) %><br>
-		<%= f.hidden_field :name, value: business["name"] %>
-			<% business["location"]['display_address'].each do |address| %>
-				<%= label_tag(:address, address) %> 
-				<%= f.hidden_field :address, value: address %>
-			<%end %>
-	<br>
-		<%= label_tag(:phone, business["display_phone"]) %> <br>
-		<%= f.hidden_field :phone, value: business["display_phone"] %>
-		<%= label_tag(:rating) %><img src=<%= business["rating_img_url"] %> /> <br>
-		<%= f.hidden_field :rating, value: business["rating"] %>
-		<%= f.hidden_field :yid, value: business["id"] %>
-		<%=link_to "More Info", business["url"], :target => '_blank' %><br>
-		<%= f.hidden_field :biz_url, value: business['url'] %>
-		<%= f.submit "Add Activities" %>
-	<% end %>
-<%end %>
-
-
 
 
 
