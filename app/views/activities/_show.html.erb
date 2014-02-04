@@ -1,8 +1,11 @@
-
+	<img src=<%=@activity["thumbnail_photo"] %> /><br>
 	Name: <%= @activity["name"] %> <br>
 	Address: <%= @activity["address"] %> <br>
 	Phone: <%= @activity["phone"] %> <br>
-	<%= link_to "More Info", @activity["biz_url"], :target => "_blank" %><br>
+	Rating: <%=@activity['rating']%><br>
+	<%= link_to "More Info", "#{@activity["biz_url"]}", :target => "_blank" %><br>
+
+
 	<%= link_to "Edit", "/trips/#{@trip}/activities/#{@activity['id']}/edit" %>
 
 	<%= link_to "Delete", "/trips/#{@trip}/activities/#{@activity['id']}", method: :delete %>

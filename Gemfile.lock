@@ -28,6 +28,9 @@ GEM
     arel (4.0.1)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
+    better_errors (1.1.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
     builder (3.1.4)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -61,6 +64,8 @@ GEM
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
+    quiet_assets (1.0.2)
+      railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -118,12 +123,14 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby (~> 3.1.2)
+  better_errors
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails
   json (~> 1.8.1)
   oauth (~> 0.4.7)
   pry
+  quiet_assets
   rails (= 4.0.2)
   sass-rails (~> 4.0.0)
   sdoc

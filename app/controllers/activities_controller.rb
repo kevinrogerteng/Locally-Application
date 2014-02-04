@@ -7,6 +7,7 @@ class ActivitiesController < ApplicationController
 	def create
 		new_activity = Activity.create(activity_params)
 		trip = params[:id]
+		binding.pry
 		add_trip = current_user.trips.find(trip)
 		add_trip.activities << new_activity
 		redirect_to trip_path(trip)
@@ -43,6 +44,6 @@ class ActivitiesController < ApplicationController
 	private
 
 	def activity_params
-		params.require(:activity).permit(:name, :address, :thumbnail_photo, :biz_url, :phone, :yid)
+		params.require(:activity).permit(:name, :address, :thumbnail_photo, :biz_url, :phone, :yid, :rating)
 	end
 end

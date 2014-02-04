@@ -23,6 +23,7 @@ Activities:<br>
 <% filtered.each do |business| %>
 	<%= form_for :activity, method: :post, url: activities_path do |f| %>
 		<img src=<%= business["image_url"]%> /><br>
+		<%= f.hidden_field :thumbnail_photo, value: business["image_url"] %>
 		<%= label_tag(:name, business["name"]) %><br>
 		<%= f.hidden_field :name, value: business["name"] %>
 			<% business["location"]['display_address'].each do |address| %>
@@ -33,8 +34,10 @@ Activities:<br>
 		<%= label_tag(:phone, business["display_phone"]) %> <br>
 		<%= f.hidden_field :phone, value: business["display_phone"] %>
 		<%= label_tag(:rating) %><img src=<%= business["rating_img_url"] %> /> <br>
+		<%= f.hidden_field :rating, value: business["rating"] %>
 		<%= f.hidden_field :yid, value: business["id"] %>
 		<%=link_to "More Info", business["url"], :target => '_blank' %><br>
+		<%= f.hidden_field :biz_url, value: business['url'] %>
 		<%= f.submit "Add Activities" %>
 	<% end %>
 <%end %>

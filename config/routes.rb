@@ -20,4 +20,6 @@ LocallyApp::Application.routes.draw do
   patch '/trips/:id/activities/:activity_id' => 'activities#update'
 
   delete '/trips/:id/activities/:activity_id' => 'activities#destroy', as: :delete
+
+  get 'trips/search' => 'trips#show', as: :search
 end
