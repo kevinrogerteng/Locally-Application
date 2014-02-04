@@ -1,17 +1,16 @@
 <div class="container">
 	<div class='tripbox'>
-	<div class="row">
-		<div class="col-sm-12">
-	<div class="welcome">
-		 <%= link_to raw("<em class=\"glyphicon glyphicon-plus\"> Add New Trip </em>"), new_trip_path, class: "btn-sm btn-default", method: :get %> 
-		 </div> 
+			<div class="add_trips">
+				<div class="add_trip big">
+					 <%= link_to raw("<i class=\"glyphicon glyphicon-plus\"> Add New Trip </i>"), new_trip_path, class: "triplink block", method: :get %> 
+				</div> 
+			</div>
 	</div>
-	</div>
+
 		<% @trips.each do |y| %>
 			<div class="trips">
-				<div class="trip big"><%= link_to raw("<i>#{y.name} -- Destination: #{y.destination}</i>"), trip_path(y.id), class: "block", method: :get %><br></div>
+				<div class="trip big"><%= link_to raw("<i>#{y.name} -- Destination: #{y.destination}</i>"), trip_path(y.id), class: "triplink block", method: :get %><br></div>
 			</div>
 		<% end %>
-	</div>
 </div>
 

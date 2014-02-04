@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse" role="navigation">
+<nav class="navbar" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <div class="logo"><a class="navbar-brand" href="/trips"> Locally</a></div>
+      <div class="logo"><a class="navbar-brand sink logo" href="/trips"> Locally</a></div>
 
     </div>
 
@@ -16,7 +16,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <% if signed_in? %>
-        <%= link_to "View All Trips", trips_path, class: 'navbar-brand' %>
+        <%= link_to "View All Trips", trips_path, class: 'navbar-brand sink shell' %>
+        <%= link_to "My profile", current_user, class: 'navbar-brand sink shell' %>
         <%end%>
       </ul>
       <div class="navbar-form navbar-left">
@@ -24,8 +25,8 @@
       <ul class="nav navbar-nav navbar-right">
         <% if signed_in? %>
           <div class="form-inline">
-          <%= link_to "My profile", current_user, class: 'navbar-brand' %>
-          <%= link_to "Sign out", signout_path, method: "delete", class: 'navbar-brand'%>
+          
+          <%= link_to "Sign out", signout_path, method: "delete", class: 'navbar-brand sink shell'%>
         </div>
         <% else %>
         <div class="form-inline">

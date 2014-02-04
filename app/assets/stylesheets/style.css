@@ -1,7 +1,6 @@
 body{
-	background-image:url("http://i.imgur.com/kmiQNqH.jpg");
-	background-size: cover;
-    background-position: fixed center;
+	background-color: #414768;
+    color:white;
 }
 
 .trip_info{
@@ -44,7 +43,11 @@ body{
 	padding: 5px;
 	text-align: center;
 }
-
+.shell{
+	border: solid 1px white;
+	border-radius: 10px;
+	margin-left: 2px;
+}
 .welcome {
 	margin-left: 7px;
 	margin-bottom: 2px;
@@ -52,10 +55,14 @@ body{
 }
 .header1{
 	font-size: 3em;
-	font-family: 'Lemon', cursive;;
+	font-family: 'Lemon', cursive;
+}
+.quote{
+	font-size: 2em;
+	font-family: 'Lemon', cursive;
+	margin-top: 20px;
 }
 
-}
 .logo {
 	font-family: 'Lemon', cursive;;
 }
@@ -77,13 +84,31 @@ body{
   padding: 1em;
   width: 50em;
   cursor: pointer;
-  background: #ff4444;
+  border: solid 1px white;
   text-decoration: none;
   color: #666666;
   border-radius: 10px;
   /* Prevent highlight colour when element is tapped */
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   align: center;
+}
+
+.add_trips {
+	align:center;
+}
+.add_trip {
+  margin: .4em;
+  padding: 1em;
+  width: 50em;
+  cursor: pointer;
+  border: solid 1px white;
+  text-decoration: none;
+  color: #666666;
+  border-radius: 10px;
+  /* Prevent highlight colour when element is tapped */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  align: center;
+  text-align: center;
 }
 
 .big {
@@ -102,5 +127,19 @@ body{
   -webkit-transform: scale(1.1);
   -ms-transform: scale(1.1);
   transform: scale(1.1);
+}
+
+.triplink{
+	color: white;
+	font-size: 1.5em;
+}
+.alert{
+	color: white;
+}
+.field_with_error{
+	color:white;
+}
+.logo{
+	font-size: 1.5em;
 }
 
