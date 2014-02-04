@@ -1,0 +1,11 @@
+body{
+	background-image:url("http://i.imgur.com/kmiQNqH.jpg");
+	background-size: cover;
+    background-position: center;
+}
+
+.caption{
+	text-align: center;
+	color: white;
+	font-family: 'Lemon', cursive;
+}

@@ -2,8 +2,12 @@ class TripsController < ApplicationController
 	include YelpsHelper
 
 	def index
-		@current_user = current_user
-		@trips = current_user.trips
+		if signed_in?
+			@current_user = current_user
+			@trips = current_user.trips
+		else 
+			redirect_to root_url
+		end
 	end
 
 	def new

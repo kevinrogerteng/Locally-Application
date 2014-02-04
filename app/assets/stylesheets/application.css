@@ -11,3 +11,7 @@
  *= require_self
  *= require_tree .
  */
+body{
+	bacground-image:url('http://imgur.com/mPitDhU');
+	background-repeat:no-repeat;
+}

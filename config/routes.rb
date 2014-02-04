@@ -3,7 +3,7 @@ LocallyApp::Application.routes.draw do
 
   root 'sites#index'
 
-  get '/signout' => 'sessions#destroy', via: :delete
+  delete '/signout' => 'sessions#destroy', via: :delete
 
   get'signin' => 'sessions#new'
 

@@ -1,9 +1,17 @@
-Welcome to Locally, <%= link_to @current_user['screen_name'], user_path(@current_user['id'])%>! <%= link_to "Sign Out", signout_path %><br>
-<%= link_to "Add a Trip", new_trip_path %>  
-<div class='tripbox'>
-<% @trips.each do |y| %>
-<%= link_to y.name, trip_path(y.id) %><br> 
-<%=y.destination %><br>
-<%= y.description %><br>
-<% end %>
+<div class="container">
+	<div class='tripbox'>
+	<div class="row">
+		<div class="col-sm-12">
+	<div class="welcome">
+		 <%= link_to raw("<em class=\"glyphicon glyphicon-plus\"> Add New Trip </em>"), new_trip_path, class: "btn-sm btn-default", method: :get %> 
+		 </div> 
+	</div>
+	</div>
+		<% @trips.each do |y| %>
+			<div class="trip">
+				<%= link_to raw("<i>#{y.name} -- Destination: #{y.destination}</i>"), trip_path(y.id), class: "btn-lg btn-danger btn-block active", method: :get %><br>
+			</div>
+		<% end %>
+	</div>
 </div>
+

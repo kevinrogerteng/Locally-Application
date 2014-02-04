@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
 	has_many :trips
 	has_secure_password
 	before_save :create_remember_token
+
+	validates :email_address, uniqueness: true
+	validates :password, confirmation: true, length: {in: 6..20}
+	validates :password_confirmation, presence: true
 end
 
 private

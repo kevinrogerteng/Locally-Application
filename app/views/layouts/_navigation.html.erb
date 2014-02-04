@@ -1,0 +1,44 @@
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/trips"> Locally</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+      </ul>
+      <div class="navbar-form navbar-left">
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <% if signed_in? %>
+          <div class="form-inline">
+          <%= link_to "My profile", current_user, class: 'navbar-brand' %>
+          <%= link_to "Sign out", signout_path, method: "delete", class: 'navbar-brand'%>
+        </div>
+        <% else %>
+        <div class="form-inline">
+          <div class="signin">
+            <%= form_for(:session, url: sessions_path) do |f| %>
+              <div class="form-group">
+                <%= f.text_field :email_address, placeholder: "Email Address" %>
+              </div>
+              <div class="form-group">
+                <%= f.password_field :password, placeholder: "Password" %>
+              </div>
+                <%= f.submit "Sign in", class: "btn-xs btn-primary" %>
+              <% end %>
+          </div>
+        </div>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

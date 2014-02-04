@@ -1,12 +1,20 @@
-
-    <h1>Sign in</h1>
+<div class="container" >
+	<div id ="sign">
+    	<h1>Sign in</h1>
+	</div>
     <%= form_for(:session, url: sessions_path) do |f| %>
-
-      <%= f.label :email_address %>
-      <%= f.text_field :email_address %> <br>
-
-      <%= f.label :password %>
-      <%= f.password_field :password %> <br>
-
+    
+    	<div class="input-group">
+  			<span class="input-group-addon">></span>
+      			<%= f.text_field :email_address, placeholder: "Email Address", class: "form-control" %> <br>
+      	</div>
+		<div class="input-group">
+  			<span class="input-group-addon">></span>
+      			<%= f.password_field :password, placeholder: "Password", class: "form-control" %> <br>
+      	</div>
+<br>
+	<div id ="sign">
       <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
     <% end %>
+	</div>
+</div>
