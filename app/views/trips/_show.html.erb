@@ -1,12 +1,13 @@
-<%= link_to "View All Trips", trips_path %>
-<%= link_to "Add Activity", new_activity_path %>
-<div class= "Trip Information">
-	Trip Name: <%= @trip['name'] %> <br>
-	Destination: <%= @trip['destination'] %> <br>
-	Description: <%= @trip['description'] %> <br>
-	<%= link_to "Edit", edit_trip_path(@trip['id']) %>
-	<%= link_to "Delete Trip", trip_path(@trip['id']), method: :delete%><br>
-</div>
+<%= link_to raw("<em class=\"glyphicon glyphicon-plus\"> Add Activity </em>"), new_activity_path, class: "btn-sm btn-default", method: :get %> 
+<div class="trip_info">
+	<div class= "Trip Information">
+		Trip Name: <%= @trip['name'] %> <br>
+		Destination: <%= @trip['destination'] %> <br>
+		Description: <%= @trip['description'] %> <br>
+		<%= link_to "Edit", edit_trip_path(@trip['id']) %>
+		<%= link_to "Delete Trip", trip_path(@trip['id']), method: :delete%><br>
+	</div>
+
 <br>
 
 <% activities = [] %>
@@ -16,6 +17,8 @@ Activities:<br>
 		Name: <%= link_to activity['name'], "/trips/#{activity.trip.id}/activities/#{activity['id']}" %><br>
 		<% activities << activity['yid'] %>
 	<% end%><br>
+
+</div>
 
 	Eat, See and Do in <%= @trip['destination'] %><br>
 <%= form_tag trip_path, :method => 'get' do %>

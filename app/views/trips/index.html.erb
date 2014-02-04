@@ -8,8 +8,8 @@
 	</div>
 	</div>
 		<% @trips.each do |y| %>
-			<div class="trip">
-				<%= link_to raw("<i>#{y.name} -- Destination: #{y.destination}</i>"), trip_path(y.id), class: "btn-lg btn-danger btn-block active", method: :get %><br>
+			<div class="trips">
+				<div class="trip big"><%= link_to raw("<i>#{y.name} -- Destination: #{y.destination}</i>"), trip_path(y.id), class: "block", method: :get %><br></div>
 			</div>
 		<% end %>
 	</div>
