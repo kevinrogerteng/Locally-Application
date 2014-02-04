@@ -1,3 +1,4 @@
+
 <%= link_to "View All Trips", trips_path %>
 <%= link_to "Add Activity", new_activity_path %>
 <div class= "Trip Information">
@@ -5,9 +6,10 @@
 	Destination: <%= @trip['destination'] %> <br>
 	Description: <%= @trip['description'] %> <br>
 	<%= link_to "Edit", edit_trip_path(@trip['id']) %>
-	<%= link_to "Delete", trip_path(@trip['id']), method: :delete%><br>
+	<%= link_to "Delete Trip", trip_path(@trip['id']), method: :delete%><br>
 </div>
 <br>
+
 <% activities = [] %>
 
 Activities:<br>
@@ -16,7 +18,11 @@ Activities:<br>
 		<% activities << activity['yid'] %>
 	<% end%><br>
 
-	Available Things to do in <%= @trip['destination'] %><br>
+	Eat, See and Do in <%= @trip['destination'] %><br>
+<%= form_tag trip_path, :method => 'get' do %>
+	<%= text_field_tag :search, params[:search], placeholder: "Enter search here"  %>
+	<%= submit_tag "Search" %>
+<%end %>
 	
 <% filtered = @result.delete_if{|y| activities.include?(y["id"])} %>
 

@@ -7,7 +7,6 @@ class ActivitiesController < ApplicationController
 	def create
 		new_activity = Activity.create(activity_params)
 		trip = params[:id]
-		binding.pry
 		add_trip = current_user.trips.find(trip)
 		add_trip.activities << new_activity
 		redirect_to trip_path(trip)

@@ -7,6 +7,7 @@ class TripsController < ApplicationController
 	end
 
 	def new
+		@current_user = current_user
 		@trip = Trip.new
 	end
 
@@ -18,6 +19,7 @@ class TripsController < ApplicationController
 	end
 
 	def edit
+		@current_user = current_user
 		id = params[:id]
 		@trip = Trip.find(id)
 	end
@@ -30,10 +32,15 @@ class TripsController < ApplicationController
 	end
 
 	def show 
+		@current_user = current_user
 		id = params[:id]
 		@trip = Trip.find(id)
 		@activity = @trip.activities
-		restaurant = params[:search]
+		if params[:search] == nil
+			restaurant = "restaurants"
+		else
+			restaurant = params[:search].gsub(" ", "+")
+		end
 		location = @trip.destination.delete(",").gsub(" ", "+")
 		consumer_key = 'fRaHH5Mu6S5cERbTaBA9mw'
 		consumer_secret = 'mrmPWhiK1WCg38bAaTFHUKbObjU'
@@ -44,7 +51,7 @@ class TripsController < ApplicationController
 
 		consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
 		access_token = OAuth::AccessToken.new(consumer, token, token_secret)
-		path = "/v2/search?term=restaurants&location=#{location}&limit=10&sort=0"
+		path = "/v2/search?term=#{restaurant}&location=#{location}&limit=10&sort=0"
 		@result = JSON.parse(access_token.get(path).body)["businesses"]
 	end
 

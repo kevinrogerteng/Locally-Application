@@ -1,4 +1,4 @@
-<%= @current_user['screen_name']%> <%= link_to "Sign Out", signout_path %><br>
+Welcome to Locally, <%= link_to @current_user['screen_name'], user_path(@current_user['id'])%>! <%= link_to "Sign Out", signout_path %><br>
 <%= link_to "Add a Trip", new_trip_path %>  
 <div class='tripbox'>
 <% @trips.each do |y| %>
