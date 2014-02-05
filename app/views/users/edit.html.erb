@@ -1,0 +1,22 @@
+<div class="container">
+    <%= form_for(@user) do |f| %>
+      <% unless @user.errors.count == 0   %>
+        <div class="alert alert-error">
+          The form contains <%= pluralize(@user.errors.count, "error") %>.
+        </div>
+        <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li>* <%= msg %></li>
+        <% end %>
+        </ul>
+    <% end %>
+        <%= f.text_field :email_address, placeholder: "Email Address", class: "form-control"%> <br>
+        <%= f.password_field :password, placeholder: "Password", class: "form-control" %> <br>
+        <%= f.password_field :password_confirmation, placeholder: "Confirm Password", class: "form-control"  %> <br>
+    
+        <div class="create">
+        <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+        <% end %>
+        </div>
+
+</div>

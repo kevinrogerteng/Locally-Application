@@ -1,16 +1,21 @@
 <div class="container">
+	<div class='row'>
+		<div class="col-xs-12">
 	<div class='tripbox'>
-			<div class="trips">
-				<div class="trip_font block">
+			<div class="trips trip_font">
 					 <%= link_to raw("<i class=\"glyphicon glyphicon-plus\"> Add New Trip </i>"), new_trip_path, class: "add_trip triplink big", method: :get %> 
-				</div> 
+					</div>
+				</div>
 			</div>
 	</div>
-
+	<div class='row'>
+			<div class="col-xs-12">
 		<% @trips.each do |y| %>
 			<div class="trips">
 				<div class="trip_font block"><%= link_to raw("<i>#{y.name} -- Destination: #{y.destination}</i>"), trip_path(y.id), class: "add_trip triplink big", method: :get %><br></div>
 			</div>
 		<% end %>
+	</div>
+</div>
 </div>
 
