@@ -1,11 +1,17 @@
-	<img src=<%=@activity["thumbnail_photo"] %> /><br>
-	Name: <%= @activity["name"] %> <br>
-	Address: <%= @activity["address"] %> <br>
-	Phone: <%= @activity["phone"] %> <br>
-	Rating: <%=@activity['rating']%><br>
-	<%= link_to "More Info", "#{@activity["biz_url"]}", :target => "_blank" %><br>
+	<% if @activity["thumbnail_photo"] == nil %>
+		<% photo = "http://i3.kym-cdn.com/entries/icons/original/000/006/707/nothing-to-do-here-template.jpg.scaled500.jpg" %>
+		<%else%>
+		<% photo = @activity["thumbnail_photo"]%>
+		<%end%>
+
+	<img class="image" src=<%="#{photo}" %> /><br>
+	<div class="form-group profile">Name: <%= @activity["name"] %> <br></div>
+	<div class="form-group profile">Address: <%= @activity["address"] %> <br></div>
+	<div class="form-group profile">Phone: <%= @activity["phone"] %> <br></div>
+	<div class="form-group profile">Rating: <%=@activity['rating']%><br></div>
+	<div class="form-group profile"><%= link_to "More Info", "#{@activity["biz_url"]}", :target => "_blank" %><br></div>
 
 
-	<%= link_to "Edit", "/trips/#{@trip}/activities/#{@activity['id']}/edit" %>
+	<%= link_to "Edit", "/trips/#{@trip}/activities/#{@activity['id']}/edit", class: "btn btn-lg btn-info" %>
 
-	<%= link_to "Delete", "/trips/#{@trip}/activities/#{@activity['id']}", method: :delete %>
+	<%= link_to "Delete", "/trips/#{@trip}/activities/#{@activity['id']}", method: :delete, class: "btn btn-lg btn-danger" %>

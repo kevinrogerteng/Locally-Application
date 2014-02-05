@@ -1,5 +1,6 @@
+<div class="form-group profile">Name: <%= @user.name %><br></div>
+<div class="form-group profile">Screen Name: <%= @user.screen_name %><br></div>
+<div class="form-group profile">Email Address: <%= @user.email_address %><br></div>
+<div class="form-group profile"> Hometown: <%= @user.hometown %><br></div>
 
-Name: <%= @user.name %><br>
-Screen Name: <%= @user.screen_name %><br>
-Email Address: <%= @user.email_address %><br>
-Hometown: <%= @user.hometown %><br>
+<div class="profile"><%= link_to raw("<i>Edit</i>"), edit_user_path(@user['id']), class: "trip_edit btn btn-lg btn-info" %></div>

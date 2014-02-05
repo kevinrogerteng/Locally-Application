@@ -249,3 +249,11 @@ body{
 .signup{
     margin-top: -20px
 }
+.profile {
+  font-size: 2em;
+  text-align: left;
+}
+.image {
+  height: 100px;
+  width: 100px;
+}
