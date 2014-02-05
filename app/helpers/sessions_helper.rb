@@ -44,4 +44,11 @@ module SessionsHelper
   def current_user
     @current_user ||= User.find_by_remember_token(cookies[:remember_token])
   end
+
+  def require_sign_in
+    unless signed_in?
+      flash[:error] = "You must be signed in to access this section"
+      redirect_to root_url
+    end
+  end
 end

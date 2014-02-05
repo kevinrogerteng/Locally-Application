@@ -1,4 +1,4 @@
-<div class="container">
+
 	<%= form_for (@trip) do |f| %>
 		<%= label_tag(:name, "Trip Name") %> <%= f.text_field :name%><br>
 		<%= label_tag(:destination, "Destination") %> <%= f.text_field :destination %><br>
@@ -6,4 +6,3 @@
 	
 		<%= f.submit "Create Trip"%>
 	<%end%>
-</div>

@@ -1,41 +1,28 @@
-<div class="container">
+
    <div class="caption">
-    <div class="header1 wobble-vertical">Welcome to Locally!</div><br>
-    <div class="quote wobble-vertical"><em>Travel and be a local</em></div>
+      <div class="header1 wobble-vertical">Welcome to Locally!</div><br>
+      <div class="quote wobble-vertical"><em>Travel and be a local</em></div>
   </div>
 <br>
 <br>
 <br>
 <br>
-  <div class="form-inline">
     <%= form_for(@user) do |f| %>
       <% unless @user.errors.count == 0   %>
         <div class="alert alert-error">
-          The form contains <%= pluralize(@user.errors.count, "error") %>.
-        </div>
+          The form contains <%= pluralize(@user.errors.count, "error") %>
         <ul>
         <% @user.errors.full_messages.each do |msg| %>
           <li>* <%= msg %></li>
         <% end %>
         </ul>
       <% end %>
-      <div class="form-group">
-      <%= f.text_field :email_address, placeholder: "Email Address", class: "form-control"%> <br>
+      <div class="signup buzz-out">
+     <%= link_to raw("Sign Up"), new_user_path, class: "btn btn-lg btn-primary" %> 
       </div>
-      <div class="form-group">
-      <%= f.password_field :password, placeholder: "Password", class: "form-control" %> <br>
-      </div>
-      <div class="form-group">
-      <%= f.password_field :password_confirmation, placeholder: "Confirm Password", class: "form-control"  %> <br>
-      </div>
-      
-
-      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
-    <% end %>
-    <div class="free">
-    <h4> Sign up for free! </h4>
-  </div>
-    </div>
-  </div>
-</div>
-</div>
+        <div class="free">
+            <h4> Sign up for free! </h4>
+            <h4> Existing User? <%= link_to "Sign in", signin_path %> </h4>
+            <%end%>
+        </div>
+  

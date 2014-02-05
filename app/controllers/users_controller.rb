@@ -1,9 +1,17 @@
 class UsersController < ApplicationController
+	include UsersHelper
+
 	def index
 	end
 
 	def show
-	    @user = User.find(params[:id])
+		@user = User.find(params[:id])
+		if check_user
+			render :show
+		else 
+			render :friend
+		end
+	 
 	end
 
 	def new
@@ -12,6 +20,7 @@ class UsersController < ApplicationController
 
 	def create
 		@user=User.new(user_params)
+		binding.pry
 		if @user.save
 			flash[:success] = "Welcome to the Locally!"
 			sign_in @user
@@ -22,19 +31,20 @@ class UsersController < ApplicationController
 	end
 
 	def edit
+		@user = User.find(params[:id])
 	end
 
-	 def update
+	def update
 		@user = User.find(params[:id])
 		@user.update_attributes(params[:user])
 		render :show
-	 end
+	end
 
-	 private
+	private
 
-	 def user_params
+	def user_params
 	 	params.require(:user).permit(:name, :screen_name, :email_address, :password, :password_confirmation, :hometown)
-	 end
+	end
 
 
 end

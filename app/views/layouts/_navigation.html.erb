@@ -17,7 +17,7 @@
       <ul class="nav navbar-nav">
         <% if signed_in? %>
         <%= link_to "View All Trips", trips_path, class: 'navbar-brand shadow-radial shell' %>
-        <%= link_to "My profile", current_user, class: 'navbar-brand shadow-radial shell' %>
+        <%= link_to "#{current_user.name}", current_user, class: 'navbar-brand shadow-radial shell' %>
         <%end%>
       </ul>
       <div class="navbar-form navbar-left">
@@ -27,20 +27,6 @@
           <div class="form-inline">
           
           <%= link_to "Sign out", signout_path, method: "delete", class: 'navbar-brand shadow-radial shell signoutright'%>
-        </div>
-        <% else %>
-        <div class="form-inline">
-          <div class="signin">
-            <%= form_for(:session, url: sessions_path) do |f| %>
-              <div class="form-group">
-                <%= f.text_field :email_address, placeholder: "Email Address" %>
-              </div>
-              <div class="form-group">
-                <%= f.password_field :password, placeholder: "Password" %>
-              </div>
-                <%= f.submit "Sign in", class: "btn-xs btn-primary" %>
-              <% end %>
-          </div>
         </div>
         <% end %>
       </ul>

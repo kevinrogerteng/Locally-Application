@@ -5,7 +5,7 @@ LocallyApp::Application.routes.draw do
 
   delete '/signout' => 'sessions#destroy', via: :delete
 
-  get'signin' => 'sessions#new'
+  get'signin' => 'sessions#new', as: :signin
 
   get '/signup' => 'users#new', as: :signup
 
