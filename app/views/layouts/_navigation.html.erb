@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <div class="logo"><a class="navbar-brand sink logo" href="/trips"> Locally</a></div>
+      <div class="logo"><a class="navbar-brand glow logo" href="/trips"> Locally</a></div>
 
     </div>
 
@@ -16,8 +16,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <% if signed_in? %>
-        <%= link_to "View All Trips", trips_path, class: 'navbar-brand sink shell' %>
-        <%= link_to "My profile", current_user, class: 'navbar-brand sink shell' %>
+        <%= link_to "View All Trips", trips_path, class: 'navbar-brand hover shell' %>
+        <%= link_to "My profile", current_user, class: 'navbar-brand hover shell' %>
         <%end%>
       </ul>
       <div class="navbar-form navbar-left">
@@ -26,7 +26,7 @@
         <% if signed_in? %>
           <div class="form-inline">
           
-          <%= link_to "Sign out", signout_path, method: "delete", class: 'navbar-brand sink shell signoutright'%>
+          <%= link_to "Sign out", signout_path, method: "delete", class: 'navbar-brand hover shell signoutright'%>
         </div>
         <% else %>
         <div class="form-inline">

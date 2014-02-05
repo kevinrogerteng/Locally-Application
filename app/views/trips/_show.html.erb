@@ -5,8 +5,10 @@
 						Trip Name: <%= @trip['name'] %> <br>
 						Destination: <%= @trip['destination'] %> <br>
 						Description: <%= @trip['description'] %> <br>
-						<%= link_to raw("<i>Edit</i>"), edit_trip_path(@trip['id']), class: "trip_edit btn btn-success" %>
+						<div class="trip_button">
+						<%= link_to raw("<i>Edit</i>"), edit_trip_path(@trip['id']), class: "trip_edit btn btn-info" %>
 						<%= link_to raw("<i>Delete</i>"), trip_path(@trip['id']), class: "trip_delete btn btn-danger", method: :delete %><br>
+						</div>
 					</div>
 			
 
@@ -15,11 +17,13 @@
 					<% activities = [] %>
 					Activities:<br>
 						<% @activity.each do |activity| %>
-							<div class="activity_button"><%= link_to raw(activity['name']), "/trips/#{activity.trip.id}/activities/#{activity['id']}", class: "add_activity big" %><br></div>
+						<div class="display_activities">
+							<%= link_to raw(activity['name']), "/trips/#{activity.trip.id}/activities/#{activity['id']}", class: "activity_button triplink big" %><br>
 							<% activities << activity['yid'] %>
-						<% end%><br>
+						</div>
+						<% end%>
 
-							<div class="activity_button"><%= link_to raw("<em class=\"glyphicon glyphicon-plus\"> Add Activity </em>"), new_activity_path, class: "add_activity big", method: :get %><br></div>
+						<%= link_to raw("<em class=\"glyphicon glyphicon-plus\"> Add Activity </em>"), new_activity_path, class: "add_activity triplink big", method: :get %><br>
 
 		</div>
 	</div>

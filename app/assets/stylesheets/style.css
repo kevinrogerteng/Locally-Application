@@ -17,6 +17,7 @@ body{
 .yelp{
 	border: solid 1px white;
 	text-align: left;
+	background-color: black;
 }
 .yelpimg{
 	padding-left: 5px;
@@ -57,7 +58,7 @@ body{
 	margin-right: 7px;
 }
 .tripbox {
-	margin-top: 60px;
+	margin-top: 40px;
 }
 .shell{
 	border: solid 1px white;
@@ -91,27 +92,13 @@ body{
 .btn-block{
 	margin-top: 10px;
 }
-.trip {
-  margin: .4em;
-  padding: 1em;
-  width: auto;
-  cursor: pointer;
-  border: solid 1px white;
-  text-decoration: none;
-  color: #666666;
-  border-radius: 10px;
-  /* Prevent highlight colour when element is tapped */
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  align: center;
-}
-
 .trips {
 	align:center;
 }
 .add_trip {
   margin: .4em;
   padding: 1em;
-  width: 50em;
+  width: 30em;
   cursor: pointer;
   border: solid 1px white;
   text-decoration: none;
@@ -122,16 +109,26 @@ body{
   align: center;
   text-align: center;
 }
-
-.add_activity{
-	color:white;
-
+.activity_button{
+  margin: .1em;
+  padding: .5em;
+  cursor: pointer;
+  border: solid 1px white;
+  text-decoration: none;
+  color: #666666;
+  border-radius: 10px;
+  /* Prevent highlight colour when element is tapped */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  align: center;
+  text-align: center;
+}
+.display_activities{
+	display :inline-block;
 }
 
-.activity_button{
-  margin: .4em;
-  padding: 1em;
-  width: 19em;
+.add_activity{
+  margin: .2em;
+  padding: .5em;
   cursor: pointer;
   border: solid 1px white;
   text-decoration: none;
@@ -161,10 +158,6 @@ body{
   transform: scale(1.1);
 }
 
-.trip_details{
-
-}
-
 .trip_edit{
 	color:white;
 }
@@ -175,7 +168,12 @@ body{
 
 .triplink{
 	color: white;
-	font-size: 1.5em;
+}
+.trip_button{
+	margin-top: 20px;
+}
+.trip_font{
+	font-size: 1.3em;
 }
 
 .alert{
@@ -187,4 +185,6 @@ body{
 .logo{
 	font-size: 1.5em;
 }
+
+
 

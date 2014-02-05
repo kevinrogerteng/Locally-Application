@@ -4493,6 +4493,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   font-size: 18px;
   line-height: 20px;
   color:white;
+  margin-bottom: 10px;
 }
 
 .navbar-brand:hover,

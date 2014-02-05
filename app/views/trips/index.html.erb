@@ -1,15 +1,15 @@
 <div class="container">
 	<div class='tripbox'>
 			<div class="trips">
-				<div class="add_trip big">
-					 <%= link_to raw("<i class=\"glyphicon glyphicon-plus\"> Add New Trip </i>"), new_trip_path, class: "triplink", method: :get %> 
+				<div class="trip_font block">
+					 <%= link_to raw("<i class=\"glyphicon glyphicon-plus\"> Add New Trip </i>"), new_trip_path, class: "add_trip triplink big", method: :get %> 
 				</div> 
 			</div>
 	</div>
 
 		<% @trips.each do |y| %>
 			<div class="trips">
-				<div class="add_trip big"><%= link_to raw("<i>#{y.name} -- Destination: #{y.destination}</i>"), trip_path(y.id), class: "triplink", method: :get %><br></div>
+				<div class="trip_font block"><%= link_to raw("<i>#{y.name} -- Destination: #{y.destination}</i>"), trip_path(y.id), class: "add_trip triplink big", method: :get %><br></div>
 			</div>
 		<% end %>
 </div>
