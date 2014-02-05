@@ -55,7 +55,7 @@ class TripsController < ApplicationController
 
 		consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
 		access_token = OAuth::AccessToken.new(consumer, token, token_secret)
-		path = "/v2/search?term=#{restaurant}&location=#{location}&limit=10&sort=0"
+		path = "/v2/search?term=#{restaurant}&location=#{location}&limit=10&sort=0&offset=10"
 		@result = JSON.parse(access_token.get(path).body)["businesses"]
 	end
 

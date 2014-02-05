@@ -4,25 +4,22 @@ body{
 }
 
 .trip_info{
+	color: white;
 	padding: 10px;
 	border-radius: 5px;
-	background-color: #000000;
-	text-align: left;
+	text-align: left
 }
 
 .business_name{
 	font-size: 2em;
 }
 
-.yelp{
-	border: solid 1px white;
-	text-align: left;
-	background-color: black;
+.intro{
+	padding: 5px;
 }
-.yelpimg{
-	padding-left: 5px;
-	padding-right: 5px;
-	padding-top: 10px;
+
+.search{
+	text-align: center;
 }
 
 .create {
@@ -186,5 +183,40 @@ body{
 	font-size: 1.5em;
 }
 
+.search_button{
+	border-radius: 5px;
+	display: inline-block;
+	cursor: pointer;
+}
+.search{
+	padding: 10px;
+}
+.result{
+  margin: .2em;
+  padding: .5em;
+  cursor: pointer;
+  border: solid 1px white;
+  color: white;
+  border-radius: 10px;
+  /* Prevent highlight colour when element is tapped */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  align: center;
+}
 
+.yelp{
+	border-radius: 5px;
+	text-align: center;
+}
+.yelpimg{
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 10px;
+}
 
+.activity_add_button{
+	padding:4px;
+}
+.searching{
+	font-family: 'Lemon', cursive;
+	font-size: 2em;
+}
