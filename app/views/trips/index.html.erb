@@ -1,13 +1,37 @@
-<div class="container">
-	<div class='row'>
-		<div class="col-xs-12">
-	<div class='tripbox'>
-			<div class="trips trip_font">
-					 <%= link_to raw("<i class=\"glyphicon glyphicon-plus\"> Add New Trip </i>"), new_trip_path, class: "add_trip triplink big", method: :get %> 
-					</div>
-				</div>
-			</div>
-	</div>
+<div class='row'>
+	<div class="col-xs-12">
+			<div class='tripbox'>
+					<div class="trips trip_font"> 
+							<a href="#add_new_trip" role="button" class="add_trip triplink big" data-toggle="modal">Add New Trip</a>
+							 
+							</div><!-- col-xs-12-->
+					</div><!-- trips trip_font -->
+			</div><!-- tripbox -->
+
+<div class="modal fade" id="add_new_trip" tabindex="-1" role="dialog" aria-labelledby="add_new_trip" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+		<h4 class="modal-title" id="add_new_trip"> Add New Trip! </h4>
+	</div> <!--modal-header-->
+	<div class="modal-body">
+		
+		<%= form_for (@trip) do |f| %>
+
+			<%= f.text_field :name, placeholder: "Trip Name", class: "form-control"%><br>
+			<%= f.text_field :destination, placeholder: "Destination", class: "form-control" %><br>
+			<%= f.text_area :description, placeholder: "Description", class: "form-control" %><br>
+	</div> <!-- modal-body-->
+		<div class = "modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			<%= f.submit "Create Trip", class: "btn btn-primary"%>
+		<%end%>
+	
+		</div> <!--modal-footer-->
+	</div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+	<!--This part shows all existing trips  -->
 	<div class='row'>
 			<div class="col-xs-12">
 		<% @trips.each do |y| %>
@@ -16,6 +40,5 @@
 			</div>
 		<% end %>
 	</div>
-</div>
-</div>
+
 

@@ -5,6 +5,7 @@ class TripsController < ApplicationController
 	before_filter :check_trip_owner, only: [:destroy, :update, :edit]
 	
 	def index
+		@trip = Trip.new
 		if signed_in?
 			@current_user = current_user
 			@trips = current_user.trips
