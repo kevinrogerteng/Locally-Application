@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 	def create
 		@user=User.new(user_params)
 		if @user.save
-			flash[:success] = "Welcome to the Locally!"
+			flash[:success] = "Welcome to the Locally! #{@user.name}"
 			sign_in @user
 			redirect_to trips_path
 		else

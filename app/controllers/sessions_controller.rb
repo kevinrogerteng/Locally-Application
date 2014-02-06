@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 	include SessionsHelper
-  
+
   def new
   end
 
@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       redirect_to trips_path
     else
       # Create an error message and re-render the signin form.
-      flash.now[:error]='Invalid email/password combination'
+      flash.now[:warning]='Invalid email/password combination'
       render 'new'
     end
   end
