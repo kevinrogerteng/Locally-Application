@@ -8,6 +8,7 @@
 		<%= f.text_field :address, placeholder: "Address", class: "form-control" %><br>
 		<%= f.text_field :biz_url, placeholder: "URL or Reference Link", class: "form-control" %><br>
 		<%= f.text_field :phone, placeholder: "Phone Number", class: "form-control" %><br>
+		<%= f.text_field :thumbnail_photo, placeholder: "Image URL", class: "form-control" %><br>
 		<% f.hidden_field :tripid, value: @trip.to_i %>
 		<%= f.submit "Create Activity", class: "btn btn-lg btn-primary"%>
 	<%end%>

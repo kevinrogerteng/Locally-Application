@@ -4757,7 +4757,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #white;
+  background-color: white;
 }
 
 .navbar-default .navbar-collapse,
@@ -4856,7 +4856,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse .navbar-toggle .icon-bar {
-  background-color: #white;
+  background-color: white;
 }
 
 .navbar-inverse .navbar-collapse,
@@ -6019,12 +6019,10 @@ button.close {
   position: relative;
   padding: 20px;
   background-color: rgba(0, 0, 0, .4);
-  margin-bottom: -30px;
 }
 
 .modal-footer {
-  padding: 19px 20px 20px;
-  margin-top: 15px;
+  padding: 1px 20px 20px;
   text-align: right;
   background-color: rgba(0, 0, 0, .4);
 }

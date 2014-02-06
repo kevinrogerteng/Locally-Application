@@ -16,27 +16,20 @@
 		<br>
 
 					<% activities = [] %>
-					<h4>Activities:</h4><br>
+				<h4>Activities:</h4> <%= link_to raw("<em class=\"glyphicon glyphicon-plus\"> Add Activity </em>"), new_activity_path, class: " activitylink text big", method: :get %><br>
 					<div class="form-inline">
 						<% @activity.each do |activity| %>
-						<div class="activitylink hover">
-						<div class="form-group-activity">
-							<div class="media">
-								<div class="pull-left">
-									<img class="media-object actimg img-circle" src=<%= activity["thumbnail_photo"]%> />
-								</div><!--pull left,-->
-								<div class="media-heading">
-						<%= link_to raw(activity['name']), "/trips/#{activity.trip.id}/activities/#{activity['id']}", class: "text" %><br>
-							<% activities << activity['yid'] %>
-							</div> <!-- media-body-->
-						</div> <!-- media -->
-					</div> <!--form group-->
+						<div class="activitylink grow-rotate">
+							<div class="form-group-activity">
+		
+										<img class="actimg img-circle" src=<%= activity["thumbnail_photo"]%> />
+									
+							<%= link_to raw(activity['name']), "/trips/#{activity.trip.id}/activities/#{activity['id']}", class: "text" %><br>
+								<% activities << activity['yid'] %>
+						</div> <!--form group-->
 					</div> <!-- activitylink-->
 						<% end%>
 						</div><!-- form inline-->
-					
-
-						<%= link_to raw("<em class=\"glyphicon glyphicon-plus\"> Add Activity </em>"), new_activity_path, class: " activitylink text big", method: :get %><br>
 
 		</div>
 	</div>
@@ -99,7 +92,7 @@
 									<%= f.hidden_field :yid, value: business["id"] %>
 								</div>
 							<% end %>
-							
+
 						</div><!--yelp result-->
 					</div> <!-- result-background-->
 				</div> <!-- media-->
