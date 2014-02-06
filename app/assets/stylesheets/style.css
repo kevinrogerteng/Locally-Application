@@ -1,7 +1,6 @@
 body{
   background: url("http://i.imgur.com/jMdV7Q0.jpg");
   background-size: cover;
-	background-color: #414768;
   color:white;
 }
 
@@ -91,19 +90,6 @@ body{
 .btn-block{
 	margin-top: 10px;
 }
-.activity_button{
-  margin: .1em;
-  padding: .5em;
-  cursor: pointer;
-  border: solid 1px white;
-  text-decoration: none;
-  color: #666666;
-  border-radius: 10px;
-  /* Prevent highlight colour when element is tapped */
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  align: center;
-  text-align: center;
-}
 .display_activities{
 	display :inline-block;
 }
@@ -160,6 +146,15 @@ body{
   border-radius: 10px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
+.activitylink{
+  background-color: black;
+  margin: .1em;
+  padding: .5em;
+  border: solid 1px white;
+  border-radius: 10px;
+  cursor: pointer;
+}
 .trip_button{
 	margin-top: 20px;
 }
@@ -191,8 +186,8 @@ body{
   cursor: pointer;
   border: solid 1px #404040;
   color: white;
+  border: solid 2px white;
   border-radius: 10px;
-  background-color: #404040;
   /* Prevent highlight colour when element is tapped */
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   align: center;
@@ -264,4 +259,15 @@ body{
 .header_form{
   font-size: 2em;
   margin-bottom: 10px;
+}
+.icon-bar{
+  border: solid 1px white;
+}
+.actimg{
+  height:40px;
+  width: 40px;
+}
+
+.text{
+  color:white;
 }

@@ -16,15 +16,27 @@
 		<br>
 
 					<% activities = [] %>
-					Activities:<br>
+					<h4>Activities:</h4><br>
+					<div class="form-inline">
 						<% @activity.each do |activity| %>
-						<div class="display_activities">
-							<%= link_to raw(activity['name']), "/trips/#{activity.trip.id}/activities/#{activity['id']}", class: "activity_button triplink big" %><br>
+						<div class="activitylink hover">
+						<div class="form-group-activity">
+							<div class="media">
+								<div class="pull-left">
+									<img class="media-object actimg img-circle" src=<%= activity["thumbnail_photo"]%> />
+								</div><!--pull left,-->
+								<div class="media-heading">
+						<%= link_to raw(activity['name']), "/trips/#{activity.trip.id}/activities/#{activity['id']}", class: "text" %><br>
 							<% activities << activity['yid'] %>
-						</div>
+							</div> <!-- media-body-->
+						</div> <!-- media -->
+					</div> <!--form group-->
+					</div> <!-- activitylink-->
 						<% end%>
+						</div><!-- form inline-->
+					
 
-						<%= link_to raw("<em class=\"glyphicon glyphicon-plus\"> Add Activity </em>"), new_activity_path, class: "add_activity triplink big", method: :get %><br>
+						<%= link_to raw("<em class=\"glyphicon glyphicon-plus\"> Add Activity </em>"), new_activity_path, class: " activitylink text big", method: :get %><br>
 
 		</div>
 	</div>
@@ -60,34 +72,36 @@
 		<% filtered = @result.delete_if{|y| activities.include?(y["id"])} %>
 		<% filtered.each do |business| %>
 				<div class="media">
-					<div class="yelp result">
-						<%= form_for :activity, method: :post, url: activities_path do |f| %>
-							<div class="pull-left">
-								<img class="media-object yelpimg img-circle" src=<%= business["image_url"]%> />
-							Rating: <%= label_tag(:rating, business["rating"]*2)%> /10
-							</div>
-							<div class="media-body">
-								<%= label_tag(:name, business["name"], class: "business_name") %> <br>
-									<% business["location"]['display_address'].each do |address| %>
-										<%= label_tag(:address, address) %> 
-										<%= f.hidden_field :address, value: address %>
-									<%end %>
-							<br>
-								<%= label_tag(:phone, business["display_phone"]) %> <br>
-								<%=link_to "More Info", business["url"], :target => '_blank', class: "btn btn-default" %>
-								<%= f.submit "Add Activities", class: "btn btn-info" %> 
-								
-<!-- Hidden Field and Values! -->
-								<%= f.hidden_field :thumbnail_photo, value: business["image_url"] %>
-								<%= f.hidden_field :rating, value: business["rating"]*2 %>
-								<%= f.hidden_field :name, value: business["name"] %>
-								<%= f.hidden_field :phone, value: business["display_phone"] %>
-								<%= f.hidden_field :biz_url, value: business['url'] %>
-								<%= f.hidden_field :yid, value: business["id"] %>
-							</div>
-						<% end %>
-					</div>
-				</div>
+					<div class="result-background">
+						<div class="yelp result">
+							<%= form_for :activity, method: :post, url: activities_path do |f| %>
+								<div class="pull-left">
+									<img class="media-object yelpimg img-circle" src=<%= business["image_url"]%> />
+								Rating: <%= label_tag(:rating, business["rating"]*2)%> /10
+								</div>
+								<div class="media-body">
+									<p><%= label_tag(:name, business["name"], class: "business_name") %></p> <br>
+										<% business["location"]['display_address'].each do |address| %>
+											<%= label_tag(:address, address) %> 
+											<%= f.hidden_field :address, value: address %>
+										<%end %>
+								<br>
+									<%= label_tag(:phone, business["display_phone"]) %> <br>
+									<%=link_to "More Info", business["url"], :target => '_blank', class: "btn btn-default" %>
+									<%= f.submit "Add Activity", class: "btn btn-info" %> 
+									
+	<!-- Hidden Field and Values! -->
+									<%= f.hidden_field :thumbnail_photo, value: business["image_url"] %>
+									<%= f.hidden_field :rating, value: business["rating"]*2 %>
+									<%= f.hidden_field :name, value: business["name"] %>
+									<%= f.hidden_field :phone, value: business["display_phone"] %>
+									<%= f.hidden_field :biz_url, value: business['url'] %>
+									<%= f.hidden_field :yid, value: business["id"] %>
+								</div>
+							<% end %>
+						</div>
+					</div> <!-- result-background-->
+				</div> <!-- media-->
 		<%end %>
 	</div>
 	</div>
