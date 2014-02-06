@@ -1,21 +1,23 @@
-<div class="modal fade" id="add_new_trip" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="add_new_trip" tabindex="-1" role="dialog" aria-labelledby="add_new_trip" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-		<h4 class="modal-title"> Add New Trip! </h4>
+		<h4 class="modal-title" id="add_new_trip"> Add New Trip! </h4>
 	</div> <!--modal-header-->
 	<div class="modal-body">
+		
 		<%= form_for (@trip) do |f| %>
 
-			<%= f.text_field :name, placeholder: "Trip Name", class: "form-control"%><br>
-			<%= f.text_field :destination, placeholder: "Destination", class: "form-control" %><br>
+			<%= f.text_field :name, placeholder: "Trip Name", class: "form-control", required: ""%><br>
+			<%= f.text_field :destination, placeholder: "Destination", class: "form-control", required: "" %><br>
 			<%= f.text_area :description, placeholder: "Description", class: "form-control" %><br>
 	</div> <!-- modal-body-->
 		<div class = "modal-footer">
 			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			<%= f.submit "Create Trip", class: "btn btn-lg btn-primary"%>
-		</div> <!--modal-footer-->
+			<%= f.submit "Create Trip", class: "btn btn-primary"%>
 		<%end%>
+	
+		</div> <!--modal-footer-->
 	</div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->

@@ -1,23 +1,36 @@
-<div class='row'>
-	<div class="col-xs-12">
+<div class="row">
+	<!-- 	<div class='the_trip'>
 			<div class='tripbox'>
-					<div class="trips trip_font"> 
-							<a href="#add_new_trip" role="button" class="add_trip triplink big" data-toggle="modal">Add New Trip</a>
-							 
-							</div><!-- col-xs-12-->
-					</div><!-- trips trip_font -->
-			</div><!-- tripbox -->
+					<div class="trips trip_font">  -->
+						<div class="col-xs-12">
+							<a href="#add_new_trip" role="button" class="triplink big" data-toggle="modal">Add New Trip</a>
+						 </div><!-- col-xs-12-->
+					<!-- </div> --><!-- trips trip_font -->
+			<!-- </div> --><!-- tripbox -->
+</div> <!--row-->
+
+<div class="trip_table">
+		<% @trips.each do |y| %>
+		<div class='row'>
+			<div class="col-sm-12">
+				<!-- <div class="trips"> -->
+					<div class="trip_font block"><%= link_to raw("<i>#{y.name} -- Destination: #{y.destination}</i>"), trip_path(y.id), class: "triplink big", method: :get %><br></div>
+			</div><!-- col-xs-12-->
+		</div> <!--row-->
+		<% end %>
+</div><!--trip_table-->
+
+<!-- This is the modal -->
 
 <div class="modal fade" id="add_new_trip" tabindex="-1" role="dialog" aria-labelledby="add_new_trip" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-		<h4 class="modal-title" id="add_new_trip"> Add New Trip! </h4>
+		<div class="modal-title logo header_form" id="add_new_trip"> Add New Trip! </div>
 	</div> <!--modal-header-->
 	<div class="modal-body">
 		
 		<%= form_for (@trip) do |f| %>
-
 			<%= f.text_field :name, placeholder: "Trip Name", class: "form-control", required: ""%><br>
 			<%= f.text_field :destination, placeholder: "Destination", class: "form-control", required: "" %><br>
 			<%= f.text_area :description, placeholder: "Description", class: "form-control" %><br>
@@ -31,14 +44,3 @@
 	</div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-	<!--This part shows all existing trips  -->
-	<div class='row'>
-			<div class="col-xs-12">
-		<% @trips.each do |y| %>
-			<div class="trips">
-				<div class="trip_font block"><%= link_to raw("<i>#{y.name} -- Destination: #{y.destination}</i>"), trip_path(y.id), class: "add_trip triplink big", method: :get %><br></div>
-			</div>
-		<% end %>
-	</div>
-
-

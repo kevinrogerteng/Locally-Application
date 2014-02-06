@@ -8,8 +8,8 @@
 	<div class="form-group profile">Name: <%= @activity["name"] %> <br></div>
 	<div class="form-group profile">Address: <%= @activity["address"] %> <br></div>
 	<div class="form-group profile">Phone: <%= @activity["phone"] %> <br></div>
-	<div class="form-group profile">Rating: <%=@activity['rating']%><br></div>
-	<div class="form-group profile"><%= link_to "More Info", "#{@activity["biz_url"]}", :target => "_blank" %><br></div>
+	<div class="form-group profile">Rating: <%=@activity['rating']%>/10<br></div>
+	<div class="form-group profile"><%= link_to "More Info", "#{@activity["biz_url"]}", :target => "_blank", class: "btn btn-default" %><br></div>
 
 
 	<%= link_to "Edit", "/trips/#{@trip}/activities/#{@activity['id']}/edit", class: "btn btn-lg btn-info" %>

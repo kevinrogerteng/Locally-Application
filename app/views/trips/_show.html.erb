@@ -2,12 +2,13 @@
 	<div class="col-sm-4">
 		<div class="trip_info">
 					<div class= "trip_details">
-						Trip Name: <%= @trip['name'] %> <br>
-						Destination: <%= @trip['destination'] %> <br>
-						Description: <%= @trip['description'] %> <br>
+						<div class="trip_detail">Trip Name: <%= @trip['name'] %> <br></div>
+						<div class="trip_detail">Destination: <%= @trip['destination'] %> <br> </div>
+						<div class="trip_detail">Description: <%= @trip['description'] %> <br> </div>
+
 						<div class="trip_button">
-						<%= link_to raw("<i>Edit</i>"), edit_trip_path(@trip['id']), class: "trip_edit btn btn-info" %>
-						<%= link_to raw("<i>Delete</i>"), trip_path(@trip['id']), class: "trip_delete btn btn-danger", method: :delete %><br>
+						<%= link_to raw("<i>Edit</i>"), edit_trip_path(@trip['id']), class: "trip_edit btn-lg btn-info" %>
+						<%= link_to raw("<i>Delete</i>"), trip_path(@trip['id']), class: "trip_delete btn-lg btn-danger", method: :delete %><br>
 						</div>
 					</div>
 			
@@ -27,10 +28,14 @@
 
 		</div>
 	</div>
+
+
+
+<!--Search Part  -->
 	<div class="col-sm-8">
 		<div class="yelp">
 				<div class="search">
-					<div class="searching">Search for something local and add to your list!</div>
+					<div class="searching">Search and add it to your list!</div>
 						<div class="form-inline">
 							
 					<%= form_tag trip_path, :method => 'get' do %>
@@ -44,19 +49,21 @@
 					</div> <!--form-inline-->
 				</div><!-- search -->
 
+
+<!-- Search result stuff -->
 <% if @result == "" %>
 
 <%= render partial: "none"%>
 
 <%else %>
-			
+		<div class="yelp_table">
 		<% filtered = @result.delete_if{|y| activities.include?(y["id"])} %>
 		<% filtered.each do |business| %>
 				<div class="media">
 					<div class="yelp result">
 						<%= form_for :activity, method: :post, url: activities_path do |f| %>
 							<div class="pull-left">
-								<img class="media-object yelpimg" src=<%= business["image_url"]%> />
+								<img class="media-object yelpimg img-circle" src=<%= business["image_url"]%> />
 							Rating: <%= label_tag(:rating, business["rating"]*2)%> /10
 							</div>
 							<div class="media-body">
@@ -72,7 +79,7 @@
 								
 <!-- Hidden Field and Values! -->
 								<%= f.hidden_field :thumbnail_photo, value: business["image_url"] %>
-								<%= f.hidden_field :rating, value: business["rating"] %>
+								<%= f.hidden_field :rating, value: business["rating"]*2 %>
 								<%= f.hidden_field :name, value: business["name"] %>
 								<%= f.hidden_field :phone, value: business["display_phone"] %>
 								<%= f.hidden_field :biz_url, value: business['url'] %>
@@ -82,6 +89,7 @@
 					</div>
 				</div>
 		<%end %>
+	</div>
 	</div>
 </div>
 

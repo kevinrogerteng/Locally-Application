@@ -13,8 +13,8 @@ trips << Trip.create(name: 'Comic-con!', destination: "San Diego, California", d
 users[0].trips << trips[0]
 users[0].trips << trips[1]
 users[0].trips << trips[2]
-users[1].trips << trips[3]
-users[1].trips << trips[4]
+users[0].trips << trips[3]
+users[0].trips << trips[4]
 
 activities =[]
 
