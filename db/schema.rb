@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140203213716) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "activities", force: true do |t|
     t.string   "name"
     t.string   "address"
@@ -26,7 +29,7 @@ ActiveRecord::Schema.define(version: 20140203213716) do
     t.string   "yid"
   end
 
-  add_index "activities", ["trip_id"], name: "index_activities_on_trip_id"
+  add_index "activities", ["trip_id"], name: "index_activities_on_trip_id", using: :btree
 
   create_table "trips", force: true do |t|
     t.string   "name"
@@ -37,7 +40,7 @@ ActiveRecord::Schema.define(version: 20140203213716) do
     t.integer  "user_id"
   end
 
-  add_index "trips", ["user_id"], name: "index_trips_on_user_id"
+  add_index "trips", ["user_id"], name: "index_trips_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
