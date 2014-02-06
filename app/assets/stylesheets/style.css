@@ -180,27 +180,13 @@ body{
 .search{
 	padding: 10px;
 }
-.result{
-  margin: .2em;
-  padding: .5em;
-  cursor: pointer;
-  border: solid 1px #404040;
-  color: white;
-  border: solid 2px white;
-  border-radius: 10px;
-  /* Prevent highlight colour when element is tapped */
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  align: center;
-}
+
 .yelp_table{
   margin-top: 10px;
   height: 300px;
   overflow: scroll;
 }
-.yelp{
-	border-radius: 5px;
-	text-align: center;
-}
+
 .yelpimg{
 	padding-left: 5px;
 	padding-right: 5px;
@@ -270,4 +256,29 @@ body{
 
 .text{
   color:white;
+}
+.result-background{
+background-color: rgba(0, 0, 0, 0.4);
+}
+
+.result{
+  margin: .2em;
+  padding: .5em;
+  cursor: pointer;
+  border: solid 1px #404040;
+  color: white;
+  border: solid 2px white;
+  border-radius: 10px;
+  /* Prevent highlight colour when element is tapped */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  align: center;
+  position:relative;
+  z-index: 1;
+}
+
+.yelp{
+  border-radius: 5px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
 }

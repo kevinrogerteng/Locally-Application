@@ -5974,9 +5974,9 @@ button.close {
 
 .modal-content {
   position: relative;
-  border: solid 5px #4b97ab;
+  border: solid 5px rgba(0, 0, 0, .4);
   border-radius: 10px;
-  background-color: #4b97ab;
+  background-color: rgba(51,181,229, .4);
   background-clip: padding-box;
 }
 
@@ -5987,7 +5987,7 @@ button.close {
   bottom: 0;
   left: 0;
   z-index: 1030;
-  background: black;
+  background-color: rgba(0, 0, 0, 1);
 }
 
 .modal-backdrop.fade {
@@ -6003,7 +6003,7 @@ button.close {
 .modal-header {
   min-height: 16.428571429px;
   padding: 15px;
-  background-color: #4b97ab;
+  background-color: rgba(0, 0, 0, .4);
 }
 
 .modal-header .close {
@@ -6018,7 +6018,7 @@ button.close {
 .modal-body {
   position: relative;
   padding: 20px;
-  background-color: #4b97ab;
+  background-color: rgba(0, 0, 0, .4);
   margin-bottom: -30px;
 }
 
@@ -6026,7 +6026,7 @@ button.close {
   padding: 19px 20px 20px;
   margin-top: 15px;
   text-align: right;
-  background-color: #4b97ab;
+  background-color: rgba(0, 0, 0, .4);
 }
 
 .modal-footer:before,
