@@ -11,6 +11,8 @@ LocallyApp::Application.routes.draw do
 
   post '/trips/:id/activities' => 'activities#create', as: :activities
 
+  post '/trips/:id/add_activity' => 'activities#add_activity', as: :add_activity
+
   get '/trips/:id/activities/new' => 'activities#new', as: :new_activity
 
   get '/trips/:id/activities/:activity_id' => 'activities#show', as: :activity

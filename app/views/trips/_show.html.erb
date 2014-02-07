@@ -68,7 +68,7 @@
 				<div class="media">
 					<div class="result-background">
 						<div class="yelp result">
-							<%= form_for :activity, method: :post, url: activities_path do |f| %>
+							<%= form_for :activity, method: :post, url: add_activity_path do |f| %>
 								<div class="pull-left">
 									<% if business["image_url"] == nil %>
 									<img class="media-object noimg img-circle" src="http://i.imgur.com/55Gs3tK.gif" />
