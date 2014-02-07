@@ -56,7 +56,7 @@ class TripsController < ApplicationController
 		consumer_key = ENV['CONSUMER_KEY']
 		consumer_secret = ENV['CONSUMER_SECRET']
 		token = ENV['TOKEN']
-		token_secret = ENV['TOKEN_SECRET'
+		token_secret = ENV['TOKEN_SECRET']
 
 		api_host = 'api.yelp.com'
 
