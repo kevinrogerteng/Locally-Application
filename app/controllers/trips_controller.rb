@@ -23,6 +23,7 @@ class TripsController < ApplicationController
 		new_trip = Trip.create(trip_params)
 		user = current_user.trips
 		user << new_trip
+		flash[:success] = "#{new_trip.name} has been created!"
 		redirect_to trip_path(new_trip.id)
 	end
 
@@ -36,6 +37,7 @@ class TripsController < ApplicationController
 		id = params[:id]
 		trip = Trip.find(id)
 		trip.update(trip_params)
+		flash[:success] = "#{trip.name} has been updated!!"
 		redirect_to trip_path(trip.id)
 	end
 

@@ -12,6 +12,7 @@ class ActivitiesController < ApplicationController
 		trip = params[:id]
 		add_trip = current_user.trips.find(trip)
 		add_trip.activities << new_activity
+		flash[:success] = "#{new_activity.name} has been added!"
 		redirect_to trip_path(trip)
 	end
 
@@ -22,6 +23,7 @@ class ActivitiesController < ApplicationController
 		trip = params[:id]
 		add_trip = current_user.trips.find(trip)
 		add_trip.activities << new_activity
+		flash[:success] = "#{new_activity.name} has been added!"
 		redirect_to session.delete(:return_to)
 	end
 
@@ -36,6 +38,7 @@ class ActivitiesController < ApplicationController
 		trip = params[:id]
 		activity = Activity.find(id)
 		activity.update(activity_params)
+		flash[:success] = "#{activity.name} has been udpated!"
 		redirect_to trip_path(trip)
 	end
 
@@ -49,6 +52,7 @@ class ActivitiesController < ApplicationController
 		id = params[:activity_id]
 		trip = params[:id]
 		Activity.find(id).destroy
+		flash[:success] = "Activity has been deleted"
 		redirect_to trip_path(trip)
 	end
 
