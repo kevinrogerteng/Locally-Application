@@ -1,5 +1,4 @@
 class TripsController < ApplicationController
-	include YelpsHelper
 	include TripsHelper
 	before_filter :signed_in_user, only: [:create, :new, :edit, :update]
 	before_filter :check_trip_owner, only: [:destroy, :update, :edit]
