@@ -1,12 +1,15 @@
-
+<div class="blur-background">
    <div class="caption">
       <div class="header1 wobble-vertical">Welcome to <span class="logo">Locally!</span></div><br>
       <div class="quote wobble-vertical"><em>Travel and be a local</em></div>
   </div>
-<br>
-<br>
-<br>
-<br>
+<div class="main-icon-border">
+  <img class= "main-icon pop" src= "http://i.imgur.com/Bg5LAFE.png" />
+  <img class= "main-icon pop" src= "http://i.imgur.com/J5q7RJy.png"/>
+  <img class= "main-icon pop" src= "http://i.imgur.com/9Dcbcin.png"/>
+  <img class= "main-icon pop" src= "http://i.imgur.com/594Hsnt.png"/>
+  <img class= "main-icon pop" src= "http://i.imgur.com/TVrXQY7.png"/>
+</div>
     <%= form_for(@user) do |f| %>
       <% unless @user.errors.count == 0   %>
         <div class="alert alert-error">
@@ -25,4 +28,4 @@
             <h4> Existing User? <%= link_to "Sign in", signin_path, class: "sink" %> </h4>
             <%end%>
         </div>
-  
+ </div> 

@@ -5335,6 +5335,7 @@ a.thumbnail.active {
 .alert-success {
   font-size: 3em;
   background-color: rgba(127,209,167, 0.4);
+  border-radius: 10px;
 }
 
 .alert-success hr {

@@ -151,7 +151,7 @@ body{
 }
 
 .activitylink{
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
   margin: .6em;
   padding: .5em;
   border: solid 1px white;
@@ -192,7 +192,6 @@ body{
 }
 
 .activity-table{
-  height: 350px;
   overflow: scroll;
 }
 
@@ -295,4 +294,18 @@ background-color: rgba(0, 0, 0, 0.4);
   position: relative;
   z-index: 1;
 }
-
+.main-icon{
+  height: 100px;
+  width: 100px;
+}
+.main-icon-border{
+margin: 50px;
+}
+.blur-background{
+border-radius: 10px;
+background-color: rgba(0,0,0,0.2);
+padding: 20px;
+}
+.trip_table{
+  margin-top: 30px;
+}
