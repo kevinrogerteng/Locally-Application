@@ -22,6 +22,6 @@ test:
 
 production:
   adapter: postgresql
-  database: locally_app
+  database: locally_app_production
   encoding: unicode
   pool: 5

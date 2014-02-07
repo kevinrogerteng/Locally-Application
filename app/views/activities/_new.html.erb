@@ -4,7 +4,7 @@
 		<div class="col-xs-8">	
 
 	<%= form_for :activity, method: :post, url: activities_path do |f| %>
-		<%= f.text_field :name, placeholder: "Activity Name", class: "form-control"%><br>
+		<%= f.text_field :name, placeholder: "Activity Name", class: "form-control", required: "" %><br>
 		<%= f.text_field :address, placeholder: "Address", class: "form-control" %><br>
 		<%= f.text_field :biz_url, placeholder: "URL or Reference Link", class: "form-control" %><br>
 		<%= f.text_field :phone, placeholder: "Phone Number", class: "form-control" %><br>

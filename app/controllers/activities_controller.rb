@@ -1,4 +1,6 @@
 class ActivitiesController < ApplicationController
+
+	include ActivitiesHelper
 	def new
 		session[:return_to] ||= request.referer
 		@activity = Activity.new
@@ -8,6 +10,7 @@ class ActivitiesController < ApplicationController
 	def create
 		session[:return_to] ||= request.referer
 		new_activity = Activity.create(activity_params)
+		validate(new_activity)
 		trip = params[:id]
 		add_trip = current_user.trips.find(trip)
 		add_trip.activities << new_activity

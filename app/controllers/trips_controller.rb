@@ -47,8 +47,10 @@ class TripsController < ApplicationController
 
 		if params[:search] == nil
 			restaurant = "restaurants"
+			offset_number = 10
 		else
 			restaurant = params[:search].gsub(" ", "+")
+			offset_number = 0
 		end
 		location = @trip.destination.delete(",").gsub(" ", "+")
 		consumer_key = 'fRaHH5Mu6S5cERbTaBA9mw'
@@ -60,7 +62,7 @@ class TripsController < ApplicationController
 
 		consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
 		access_token = OAuth::AccessToken.new(consumer, token, token_secret)
-		path = "/v2/search?term=#{restaurant}&location=#{location}&limit=10&sort=0&offset=10"
+		path = "/v2/search?term=#{restaurant}&location=#{location}&limit=10&sort=0&offset=#{offset_number}"
 		result = JSON.parse(access_token.get(path).body)["businesses"]
 		if result.nil? || result == "" || result.empty?
 			@result = ""
