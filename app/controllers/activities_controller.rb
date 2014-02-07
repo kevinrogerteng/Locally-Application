@@ -11,7 +11,6 @@ class ActivitiesController < ApplicationController
 		trip = params[:id]
 		add_trip = current_user.trips.find(trip)
 		add_trip.activities << new_activity
-		binding.pry
 		redirect_to session.delete(:return_to)
 	end
 
