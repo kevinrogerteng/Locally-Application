@@ -53,10 +53,10 @@ class TripsController < ApplicationController
 			offset_number = 0
 		end
 		location = @trip.destination.delete(",").gsub(" ", "+")
-		consumer_key = 'fRaHH5Mu6S5cERbTaBA9mw'
-		consumer_secret = 'mrmPWhiK1WCg38bAaTFHUKbObjU'
-		token = '1awdjTbqqntT553TWHTVI-QXBuur7mVw'
-		token_secret = 'pWBLuU0QBMUJs7mPljvEnQcoivw'
+		consumer_key = ENV['CONSUMER_KEY']
+		consumer_secret = ENV['CONSUMER_SECRET']
+		token = ENV['TOKEN']
+		token_secret = ENV['TOKEN_SECRET'
 
 		api_host = 'api.yelp.com'
 
