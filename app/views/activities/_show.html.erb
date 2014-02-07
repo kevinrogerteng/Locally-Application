@@ -1,8 +1,10 @@
+
 	<% if @activity["thumbnail_photo"] == nil %>
 		<% photo = "http://i3.kym-cdn.com/entries/icons/original/000/006/707/nothing-to-do-here-template.jpg.scaled500.jpg" %>
 		<%else%>
 		<% photo = @activity["thumbnail_photo"]%>
 		<%end%>
+
 
 	<img class="image" src=<%="#{photo}" %> /><br>
 	<div class="form-group profile">Name: <%= @activity["name"] %> <br></div>

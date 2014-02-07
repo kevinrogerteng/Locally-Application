@@ -22,9 +22,8 @@
 						<% @activity.each do |activity| %>
 						<div class="activitylink grow-rotate">
 							<div class="form-group-activity">
-		
+
 										<img class="actimg img-circle" src=<%= activity["thumbnail_photo"]%> />
-									
 							<%= link_to raw(activity['name']), "/trips/#{activity.trip.id}/activities/#{activity['id']}", class: "text" %><br>
 								<% activities << activity['yid'] %>
 						</div> <!--form group-->
@@ -71,7 +70,11 @@
 						<div class="yelp result">
 							<%= form_for :activity, method: :post, url: activities_path do |f| %>
 								<div class="pull-left">
+									<% if business["image_url"] == nil %>
+									<img class="media-object noimg img-circle" src="http://i.imgur.com/55Gs3tK.gif" />
+									<%else%>
 									<img class="media-object yelpimg img-circle" src=<%= business["image_url"]%> />
+									<%end%>
 								Rating: <%= label_tag(:rating, business["rating"]*2)%> /10
 								</div>
 								<div class="media-body">

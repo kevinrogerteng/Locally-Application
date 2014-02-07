@@ -8,6 +8,7 @@ class ActivitiesController < ApplicationController
 	end
 
 	def create
+		binding.pry
 		session[:return_to] ||= request.referer
 		new_activity = Activity.create(activity_params)
 		validate(new_activity)

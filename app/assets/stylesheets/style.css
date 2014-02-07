@@ -201,7 +201,10 @@ body{
 	padding-right: 5px;
 	padding-top: 10px;
 }
-
+.noimg{
+  height:100px;
+  width: 100px;
+}
 .activity_add_button{
 	padding:4px;
 }
