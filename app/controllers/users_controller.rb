@@ -6,10 +6,13 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		if check_user
+		if check_user == true
 			render :show
-		else 
+		elsif check_user == false
 			render :friend
+		elsif check_user == "signin"
+			flash[:warning] ="You need to sign in to view user profiles"
+			redirect_to signin_path
 		end
 	 
 	end

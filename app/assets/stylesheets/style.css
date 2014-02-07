@@ -187,7 +187,12 @@ body{
 
 .yelp_table{
   margin-top: 10px;
-  height: 300px;
+  height: 420px;
+  overflow: scroll;
+}
+
+.activity-table{
+  height: 350px;
   overflow: scroll;
 }
 

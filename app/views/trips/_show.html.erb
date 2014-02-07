@@ -14,9 +14,10 @@
 			
 
 		<br>
-
+				
 					<% activities = [] %>
 				<h4>Activities:</h4> <%= link_to raw("<em class=\"glyphicon glyphicon-plus\"> Add Activity </em>"), new_activity_path, class: " activitylink text big", method: :get %><br>
+				<div class="activity-table">
 					<div class="form-inline">
 						<% @activity.each do |activity| %>
 						<div class="activitylink grow-rotate">
@@ -30,6 +31,7 @@
 					</div> <!-- activitylink-->
 						<% end%>
 						</div><!-- form inline-->
+					</div> <!--activity-table-->
 
 		</div>
 	</div>
