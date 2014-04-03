@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 gem "json", "~> 1.8.1"
 gem "oauth", "~> 0.4.7"
+
 group :development do
 	gem "quiet_assets"
 	gem 'pry'
@@ -20,6 +21,8 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   gem 'sdoc', require: false
 end
+
+gem 'rb-fsevent'
 
 gem 'bcrypt-ruby', '~> 3.1.2'
 
